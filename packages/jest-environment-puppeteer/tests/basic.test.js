@@ -1,10 +1,10 @@
 describe('Basic', () => {
-  beforeAll(async () => {
-    await page.goto('http://localhost:4444')
-  })
+	beforeAll(async () => {
+		await page.goto('https://staging-ops.daxko-qa.com/Online/9991/Programsv2/home.mvc');
+	});
 
-  it('should display "This is home!" text on page', async () => {
-    const text = await page.evaluate(() => document.body.textContent)
-    expect(text).toContain('This is home!')
-  })
-})
+	it('should display the expected client on the page', async () => {
+		const text = await page.evaluate(() => document.body.textContent);
+		expect(text).toContain('Test Client1');
+	});
+});
