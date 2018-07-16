@@ -9,6 +9,7 @@ describe('Operations online login', () => {
 	});
 
 	it('clicking on the login button', async () => {
+		await page.waitForSelector('.onlineNav__link--login');
 		await expect(page).toClick('a', { text: 'Login' });
 		await page.waitForSelector('#lnkLoginSubmit');
 		await expect(page).toMatch('I want to sign in to my account');
@@ -23,7 +24,7 @@ describe('Operations online login', () => {
 
 	it('logging out', async () => {
 		await expect(page).toClick('[data-toggle="dropdown"]');
-		await expect(page).toClick('[href="/Online/Logout.aspx?cid=9991"]');
+		await expect(page).toClick('a', { text: 'Logout' });
 		await page.waitForSelector('a[href="/Online/Join.aspx?cid=9991"]');
 	});
 });

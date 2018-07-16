@@ -109,6 +109,7 @@ describe('Online Member Join', () => {
 
 	it('logs out of newly created online account', async () => {
 		await expect(page).toClick('[data-toggle="dropdown"]');
+		await page.waitForSelector('[href="/Online/Logout.aspx?cid=9991"]');
 		await expect(page).toClick('[href="/Online/Logout.aspx?cid=9991"]');
 		await page.waitForSelector('a[href="/Online/Join.aspx?cid=9991"]');
 	});
